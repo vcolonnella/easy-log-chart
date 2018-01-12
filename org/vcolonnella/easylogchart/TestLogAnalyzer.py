@@ -1,7 +1,3 @@
-import PySide
-from PySide.QtGui import QWindow
-from PySide.QtGui import QApplication
-from PySide.QtGui import QGridLayout
 import pyqtgraph as pg
 
 from org.vcolonnella.easylogchart.LogAnalyzer import LogAnalyzer
@@ -20,15 +16,4 @@ for category in p.sampleCategory:
     print("Found %s category" % category)
 print("Completed analyze of %d results for %d categories" % (len(p.sampleData), len(p.sampleCategory)))
 
-app = QApplication([])
-
-# Create a simple dialog box
-window = QWindow()
-layout = QGridLayout()
-window.setLayout(layout)
-chart = pg.PlotWidget()
-layout.addWidget(chart)
-
-window.show()
-app.exec_()
 pg.plot(p.sampleData)
